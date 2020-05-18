@@ -1,0 +1,28 @@
+.header1 {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
+}
+
+.header2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 44px;
+}
+
+.small {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 14px;
+  color: #ABABAB;
+}
+
+.regular {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+ }
+
+.bold {
+  font-weight: 500;
+}

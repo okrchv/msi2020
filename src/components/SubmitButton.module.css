@@ -1,0 +1,14 @@
+.root {
+  appearance: none;
+  padding: 10px 40px;
+  border: none;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
+
+  background: linear-gradient(92.01deg, #8EA7FF 0%, #7291FF 100%);
+  border-radius: 10px;
+}

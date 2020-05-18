@@ -1,0 +1,49 @@
+.root {
+  display: flex;
+  flex-flow: column;
+  padding: 40px;
+  background: #F8F8F8;
+  border-radius: 20px;
+}
+
+.actions {
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.main {
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  background: #FFFFFF;
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.header {
+  margin-bottom: 5px;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
