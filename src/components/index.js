@@ -6,5 +6,7 @@ export * from './Form';
 export * from './Radio';
 export * from './SearchField';
 export * from './TagCheckbox';
+export * from './Layout';
 export * from './Button';
+export * from './Sidebar';
 export { Type };
