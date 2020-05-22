@@ -4,7 +4,7 @@ export * from './Card';
 export * from './Tag';
 export * from './Form';
 export * from './Radio';
-export * from './SubmitButton';
 export * from './SearchField';
 export * from './TagCheckbox';
+export * from './Button';
 export { Type };

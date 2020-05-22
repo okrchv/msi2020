@@ -1,3 +1,9 @@
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+}
+
 .header1 {
   font-weight: bold;
   font-size: 32px;

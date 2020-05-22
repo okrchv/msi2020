@@ -1,7 +1,14 @@
 .root {
+  display: flex;
   appearance: none;
-  padding: 10px 40px;
+  text-decoration: none;
+  background-color: transparent;
   border: none;
+}
+
+.variantSubmit {
+  padding: 10px 40px;
+  margin-top: 20px;
 
   font-style: normal;
   font-weight: bold;
@@ -11,4 +18,9 @@
 
   background: linear-gradient(92.01deg, #8EA7FF 0%, #7291FF 100%);
   border-radius: 10px;
+}
+
+.variantEmpty {
+  display: flex;
+  padding: 0;
 }
