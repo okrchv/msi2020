@@ -1,12 +1,13 @@
-import * as Type from './Type';
+import * as Type from "./Type";
+import * as Field from "./Field"
 
-export * from './Card';
-export * from './Tag';
-export * from './Form';
-export * from './Radio';
-export * from './SearchField';
-export * from './TagCheckbox';
-export * from './Layout';
-export * from './Button';
-export * from './Sidebar';
-export { Type };
+export { Type, Field };
+export * from "./Card";
+export * from "./Form";
+export * from "./Tag";
+export * from "./RadioButton";
+export * from "./TextField";
+export * from "./TagCheckbox";
+export * from "./Layout";
+export * from "./Button";
+export * from "./Sidebar";
