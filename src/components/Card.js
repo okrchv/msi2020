@@ -8,15 +8,21 @@ import * as styles from "./Card.module.css";
 
 const VARIANT_STYLES = {
   regular: styles.variantRegular,
-  small: styles.variantSmall,
+  small: styles.variantSmall
 };
 
-export const Card = ({ variant = "regular", data, favourite, className }) => {
+export const Card = ({
+  variant = "regular",
+  className,
+  data,
+  favourite,
+  onFavourite
+}) => {
   const { id, url, value, categories, updated_at } = data;
 
   return (
     <div className={cx(styles.root, VARIANT_STYLES[variant], className)}>
-      <Button className={styles.button} variant="empty">
+      <Button className={styles.button} variant="empty" onClick={onFavourite}>
         <HeartIcon empty={!favourite} />
       </Button>
       <div className={styles.main}>
@@ -34,10 +40,9 @@ export const Card = ({ variant = "regular", data, favourite, className }) => {
           <section className={styles.text}>{value}</section>
           <footer className={styles.footer}>
             <Type.Small className={styles.footerText}>
-              Last update:{" "}
-              <Type.Bold>{updated_at}</Type.Bold>
+              Last update: <Type.Bold>{updated_at}</Type.Bold>
             </Type.Small>
-            {categories.map((category) => (
+            {categories.map(category => (
               <Tag key={category} className={styles.tag}>
                 {category}
               </Tag>

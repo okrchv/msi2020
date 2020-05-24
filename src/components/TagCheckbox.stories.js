@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { TagCheckbox } from '.';
+import { TagCheckbox } from ".";
 
-export default { title: 'TagCheckbox' };
+export default { title: "TagCheckbox" };
 
 export const tagCheckbox = props => (
   <>

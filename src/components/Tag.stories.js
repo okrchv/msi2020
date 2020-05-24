@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { Tag } from '.';
+import { Tag } from ".";
 
-export default { title: 'Tag' };
+export default { title: "Tag" };
 
-export const tag = () => <Tag>Celebrity</Tag>
+export const tag = () => <Tag>Celebrity</Tag>;

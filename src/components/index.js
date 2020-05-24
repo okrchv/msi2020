@@ -1,5 +1,5 @@
 import * as Type from "./Type";
-import * as Field from "./Field"
+import * as Field from "./Field";
 
 export { Type, Field };
 export * from "./Card";

@@ -12,7 +12,7 @@
 
 .headerText {
   font-weight: 500;
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .container {
@@ -24,7 +24,7 @@
   left: 0;
   right: 0;
   padding-top: 68px;
-  background: #F8F8F8;
+  background: #f8f8f8;
   z-index: 4;
 }
 
@@ -38,7 +38,6 @@
 }
 
 .backdrop {
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -74,7 +73,7 @@
   .header {
     position: static;
     padding: 40px 0 0 40px;
-    background: #F8F8F8;
+    background: #f8f8f8;
   }
 
   .favouriteButton {
@@ -94,4 +93,3 @@
     display: none;
   }
 }
-

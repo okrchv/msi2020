@@ -11,12 +11,12 @@
   padding: 20px 0;
   position: sticky;
   top: 0px;
-  background: #FFFFFF;
+  background: #ffffff;
   z-index: 2;
 }
 
 .sidebar {
-  background: #F8F8F8;
+  background: #f8f8f8;
   flex-shrink: 0;
 }
 

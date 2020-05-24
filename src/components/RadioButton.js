@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 import { RadioButtonIcon } from "../icons";
 
-import * as styles from './RadioButton.module.css';
+import * as styles from "./RadioButton.module.css";
 
 export const RadioButton = ({ children, ...props }) => (
   <label className={styles.root}>
