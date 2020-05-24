@@ -3,11 +3,11 @@ import React, { useState, useEffect, useContext } from "react";
 import * as api from "../api";
 import { FavouritesContext } from "../FavouritesProvider";
 import { JokesContext } from "../JokesProvider";
-import { Type, Card, Form, Field, Button } from "../components";
+import { Type, Card, Form, Field, Submit } from "../components";
 
 import * as styles from "./HomePage.module.css";
 
-export const HomePage = props => {
+export const HomePage = (props) => {
   const { getJokes, cacheJokes } = useContext(JokesContext);
   const { favourites, toggleFavourite } = useContext(FavouritesContext);
   const [found, setFound] = useState([]);
@@ -19,14 +19,14 @@ export const HomePage = props => {
     const jokes = await fetchJokes(params);
 
     cacheJokes(jokes);
-    setFound(jokes.map(joke => joke.id));
+    setFound(jokes.map((joke) => joke.id));
   };
 
   return (
     <section>
       <Hero className={styles.hero} />
       <SearchForm onSubmit={handleSubmit} />
-      {foundJokes.map(joke => (
+      {foundJokes.map((joke) => (
         <Card
           key={joke.id}
           data={joke}
@@ -49,7 +49,7 @@ const SearchForm = ({ onSubmit }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    api.getCategories().then(categories => setCategories(categories));
+    api.getCategories().then((categories) => setCategories(categories));
   }, []);
 
   return (
@@ -67,7 +67,7 @@ const SearchForm = ({ onSubmit }) => {
       </Field.Radio>
       <Field.Condition when="type" is="category">
         <div className={styles.checkboxContainer}>
-          {categories.map(category => (
+          {categories.map((category) => (
             <Field.Tag key={category} name="params.category" value={category}>
               {category}
             </Field.Tag>
@@ -79,10 +79,16 @@ const SearchForm = ({ onSubmit }) => {
         Search
       </Field.Radio>
       <Field.Condition when="type" is="search">
-        <Field.Text name="params.query" placeholder="Free text search..." />
+        <Field.Text
+          name="params.query"
+          placeholder="Free text search..."
+          validate={(value = "") => {
+            if (value.length < 3) return "must be more than 3 characters";
+          }}
+        />
       </Field.Condition>
 
-      <Button>Get a joke</Button>
+      <Submit>Get a joke</Submit>
     </Form>
   );
 };

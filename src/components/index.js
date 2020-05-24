@@ -8,6 +8,7 @@ export * from "./Tag";
 export * from "./RadioButton";
 export * from "./TextField";
 export * from "./TagCheckbox";
+export * from "./Submit";
 export * from "./Layout";
 export * from "./Button";
 export * from "./Sidebar";

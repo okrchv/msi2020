@@ -12,6 +12,10 @@
   line-height: 22px;
 }
 
+.root:global(.focus-visible) {
+  outline: none;
+}
+
 .root::placeholder {
   color: #ababab;
 }

@@ -46,8 +46,15 @@
   width: 40px;
   height: 40px;
   margin-right: 20px;
-  background: #ffffff;
   border-radius: 50%;
+}
+
+.variantSmall .icon {
+  background: #f8f8f8;
+}
+
+.variantRegular .icon {
+  background: #ffffff;
 }
 
 .header {

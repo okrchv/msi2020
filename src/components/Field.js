@@ -3,9 +3,10 @@ import { Field, FormSpy } from "react-final-form";
 
 import { TextField, RadioButton, TagCheckbox } from ".";
 
-export const Text = ({ name, ...props }) => (
+export const Text = ({ name, validate, ...props }) => (
   <Field
     name={name}
+    validate={validate}
     render={({ input }) => <TextField {...props} {...input} />}
   />
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import * as cx from "classnames";
+import { parseISO, formatDistanceToNow } from 'date-fns';
 
 import { HeartIcon, MessageIcon, LinkIcon } from "../icons";
 import { Tag, Type, Button } from ".";
@@ -40,7 +41,7 @@ export const Card = ({
           <section className={styles.text}>{value}</section>
           <footer className={styles.footer}>
             <Type.Small className={styles.footerText}>
-              Last update: <Type.Bold>{updated_at}</Type.Bold>
+              Last update: <Type.Bold>{formatDistanceToNow(parseISO(updated_at))} ago</Type.Bold>
             </Type.Small>
             {categories.map(category => (
               <Tag key={category} className={styles.tag}>
