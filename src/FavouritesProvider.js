@@ -1,9 +1,19 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+
+import * as persistence from "./persistence";
+
+const LOCAL_STORAGE_KEY = "favourites";
 
 export const FavouritesContext = createContext();
 
 export const FavouritesProvider = ({ children }) => {
-  const [favourites, setFavourites] = useState([]);
+  const [favourites, setFavourites] = useState(
+    persistence.hydrate(LOCAL_STORAGE_KEY, [])
+  );
+
+  useEffect(() => {
+    persistence.persist(LOCAL_STORAGE_KEY, favourites);
+  }, [favourites]);
 
   const toggleFavourite = jokeId => {
     setFavourites(favourites =>
