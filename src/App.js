@@ -1,12 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import { Layout } from './components';
-import { HomePage } from './pages';
+import { FavouritesProvider } from "./FavouritesProvider";
+import { JokesProvider } from "./JokesProvider";
+import { Layout } from "./components";
+import { HomePage } from "./pages";
 
-import './App.css';
+import "./App.css";
 
 export const App = () => (
-  <Layout>
-    <HomePage />
-  </Layout>
+  <JokesProvider>
+    <FavouritesProvider>
+      <Layout>
+        <HomePage />
+      </Layout>
+    </FavouritesProvider>
+  </JokesProvider>
 );

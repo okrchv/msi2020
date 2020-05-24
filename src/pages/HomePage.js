@@ -1,23 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
+import * as api from "../api";
+import { FavouritesContext } from "../FavouritesProvider";
+import { JokesContext } from "../JokesProvider";
 import { Type, Card, Form, Field, Button } from "../components";
 
 import * as styles from "./HomePage.module.css";
 
-export const HomePage = (props) => {
-  const [jokes, setJokes] = useState([]);
+export const HomePage = props => {
+  const { getJokes, cacheJokes } = useContext(JokesContext);
+  const { favourites, toggleFavourite } = useContext(FavouritesContext);
+  const [found, setFound] = useState([]);
+
+  const foundJokes = getJokes(found);
 
   const handleSubmit = async ({ type, params }) => {
-    const fetchJokes = type === "search" ? searchJokes : getRandomJoke;
+    const fetchJokes = type === "search" ? api.searchJokes : api.getRandomJoke;
     const jokes = await fetchJokes(params);
-    setJokes(jokes);
+
+    cacheJokes(jokes);
+    setFound(jokes.map(joke => joke.id));
   };
 
   return (
     <section>
       <Hero className={styles.hero} />
       <SearchForm onSubmit={handleSubmit} />
-      {jokes.map((joke) => <Card key={joke.id} data={joke} />)}
+      {foundJokes.map(joke => (
+        <Card
+          key={joke.id}
+          data={joke}
+          favourite={favourites.includes(joke.id)}
+          onFavourite={() => toggleFavourite(joke.id)}
+        />
+      ))}
     </section>
   );
 };
@@ -33,7 +49,7 @@ const SearchForm = ({ onSubmit }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getCategories().then((categories) => setCategories(categories));
+    api.getCategories().then(categories => setCategories(categories));
   }, []);
 
   return (
@@ -51,7 +67,7 @@ const SearchForm = ({ onSubmit }) => {
       </Field.Radio>
       <Field.Condition when="type" is="category">
         <div className={styles.checkboxContainer}>
-          {categories.map((category) => (
+          {categories.map(category => (
             <Field.Tag key={category} name="params.category" value={category}>
               {category}
             </Field.Tag>
@@ -69,28 +85,4 @@ const SearchForm = ({ onSubmit }) => {
       <Button>Get a joke</Button>
     </Form>
   );
-};
-
-const getRandomJoke = async (params) => {
-  const searchParams = new URLSearchParams(params);
-  const response = await fetch(
-    `https://api.chucknorris.io/jokes/random?${searchParams.toString()}`
-  );
-  const data = await response.json();
-  return [data];
-};
-
-const searchJokes = async (params) => {
-  const searchParams = new URLSearchParams(params);
-  const response = await fetch(
-    `https://api.chucknorris.io/jokes/search?${searchParams.toString()}`
-  );
-  const data = await response.json();
-  return data.result;
-};
-
-const getCategories = async () => {
-  const response = await fetch("https://api.chucknorris.io/jokes/categories");
-  const data = await response.json();
-  return data;
 };
