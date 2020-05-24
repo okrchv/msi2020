@@ -1,5 +1,5 @@
 import React from "react";
-import { Field } from "react-final-form";
+import { Field, FormSpy } from "react-final-form";
 
 import { TextField, RadioButton, TagCheckbox } from ".";
 
@@ -25,5 +25,12 @@ export const Tag = ({ name, value, ...props }) => (
     name={name}
     value={value}
     render={({ input }) => <TagCheckbox {...props} {...input} />}
+  />
+);
+
+export const Condition = ({ when, is, children }) => (
+  <FormSpy
+    subscription={{ values: true }}
+    render={({ values }) => values[when] === is && children}
   />
 );

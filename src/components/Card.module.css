@@ -51,14 +51,19 @@
   border-radius: 50%;
 }
 
+.header {
+  margin-bottom: 5px;
+}
+
+.link {
+  margin-right: 5px;
+  color: #8EA7FF;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-.header {
-  margin-bottom: 5px;
 }
 
 .text {
@@ -73,7 +78,7 @@
 
 
 @media only screen and (min-width: 768px) {
-  .big {
+  .variantRegular {
     padding: 40px;
   }
 

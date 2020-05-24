@@ -27,9 +27,7 @@ export const Sidebar = ({ className, props }) => {
         })}
       >
         <section className={styles.content}>
-          <Card variant="small"/>
-          <Card variant="small"/>
-          <Card variant="small"/>
+          {/*<Card variant="small"/>*/}
         </section>
       </div>
     </>
