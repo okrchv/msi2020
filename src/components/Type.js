@@ -7,12 +7,12 @@ export const Title = ({ className, ...props }) => (
   <span className={cx(styles.title, className)} {...props} />
 );
 
-export const H1 = ({ className, ...props }) => (
-  <h1 className={cx(styles.header1, className)} {...props} />
+export const H1 = ({ className, children, ...props }) => (
+  <h1 className={cx(styles.header1, className)} {...props}>{children}</h1>
 );
 
-export const H2 = ({ className, ...props }) => (
-  <h2 className={cx(styles.header2, className)} {...props} />
+export const H2 = ({ className, children, ...props }) => (
+  <h2 className={cx(styles.header2, className)} {...props}>{children}</h2>
 );
 
 export const Regular = ({ className, ...props }) => (

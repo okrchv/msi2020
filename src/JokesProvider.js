@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useState,
-  useEffect,
-  useMemo,
-  useCallback
-} from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 import * as persistence from "./persistence";
 
@@ -21,10 +15,10 @@ export const JokesProvider = ({ children }) => {
     persistence.persist(LOCAL_STORAGE_KEY, jokes);
   }, [jokes]);
 
-  const getJokes = jokeIds => jokeIds.map(id => jokes[id]);
+  const getJokes = (jokeIds) => jokeIds.map((id) => jokes[id]);
 
-  const cacheJokes = jokes =>
-    setJokes(prevJokes =>
+  const cacheJokes = (jokes) =>
+    setJokes((prevJokes) =>
       jokes.reduce(
         (prevJokes, joke) => ({ ...prevJokes, [joke.id]: joke }),
         prevJokes
@@ -33,7 +27,7 @@ export const JokesProvider = ({ children }) => {
 
   const contextValue = {
     getJokes,
-    cacheJokes
+    cacheJokes,
   };
 
   return (
